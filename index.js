@@ -5,9 +5,14 @@ function getSelectedFile() {
   input.addEventListener("change", (e) => console.log(e.target.files[0]));
 }
 
+function fetchData(data) {
+  console.log(data);
+}
+
 function main() {
   const file = getSelectedFile();
   if (!file) return;
-  console.log("File picked:", file);
+
+  fetchData(file);
 }
 main();
