@@ -1,18 +1,16 @@
 const json = document.querySelector("#json");
+const preview = document.querySelector(".c-jsoncontainer");
 
-function getSelectedFile() {
-  const input = document.getElementById("json");
-  input.addEventListener("change", (e) => console.log(e.target.files[0]));
-}
+json.addEventListener("change", () => {
+  const fr = new FileReader();
 
-function fetchData(data) {
-  console.log(data);
-}
+  fr.readAsText(json.files[0]);
 
-function main() {
-  const file = getSelectedFile();
-  if (!file) return;
+  fr.addEventListener("load", () => {
+    const data = JSON.parse(fr.result);
 
-  fetchData(file);
-}
-main();
+    for (let key of Object.keys(data)) {
+      console.log(typeof data[key]);
+    }
+  });
+});
