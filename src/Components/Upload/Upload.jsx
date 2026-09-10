@@ -1,32 +1,12 @@
-import { useState, useEffect } from "react";
-
 import "./Upload.css";
 
-function DataLoader() {
-  const [file, setFile] = useState();
-
+function DataLoader({ onFileSelect }) {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      setFile(selectedFile);
+      onFileSelect(selectedFile);
     }
   };
-
-  useEffect(() => {
-    if (!file) return;
-
-    const fr = new FileReader();
-
-    fr.readAsText(file);
-
-    fr.addEventListener("load", () => {
-      const data = JSON.parse(fr.result);
-
-      for (let key of Object.keys(data)) {
-        console.log(typeof data[key]);
-      }
-    });
-  }, [file]);
 
   return (
     <div className="c-jsonfile">
