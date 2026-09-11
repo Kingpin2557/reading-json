@@ -1,3 +1,4 @@
+import "./MarkupData.css";
 import { type JSX } from "react";
 import { useState, useEffect } from "react";
 

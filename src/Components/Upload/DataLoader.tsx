@@ -1,3 +1,4 @@
+import "./DataLoader.css";
 type DataLoaderProp = {
   onFileSelect: (file: File) => void;
 };
