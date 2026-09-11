@@ -1,0 +1,8 @@
+.c-jsonviewer {
+    list-style: none;
+
+    .c-jsonviewer__item,
+    .c-jsonviewer__object {
+        margin-inline-start: 1rem;
+    }
+}

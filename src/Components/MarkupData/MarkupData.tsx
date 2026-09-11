@@ -14,15 +14,11 @@ function recursionData(result: string): JSX.Element {
         switch (type) {
           case "object":
             if (value !== null) {
-              console.log(`Nested Object Key: "${key}"`, value);
-
               const nestedHtml = recursionData(value);
               return (
-                <li key={index} className="c-jsonviewer c-jsonviewer__item">
-                  <strong className="c-jsonviewer c-jsonviewer--object">
-                    {key}
-                  </strong>
-                  : {nestedHtml} ,
+                <li key={index} className="c-jsonviewer c-jsonviewer__object">
+                  <strong className="c-jsonviewer">{key}</strong>: {nestedHtml}{" "}
+                  ,
                 </li>
               );
             }
@@ -30,9 +26,6 @@ function recursionData(result: string): JSX.Element {
           case "string":
           case "number":
           case "boolean":
-            console.log(
-              `${key} has a type of ${typeof key} with value: ${value}`,
-            );
             return (
               <li key={index} className="c-jsonviewer c-jsonviewer__item">
                 {key}:
